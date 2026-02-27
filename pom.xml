@@ -10,7 +10,7 @@
 
     <build>
         <plugins>
-            <!-- This plugin runs your tests using TestNG -->
+            <!-- This plugin runs your tests using TestNG-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -21,6 +21,7 @@
                     </suiteXmlFiles>
 
                     <!-- Pass variables from Maven to your tests -->
+
                     <systemPropertyVariables>
                         <browser>${browser}</browser>
                         <isLambdaTest>${isLambdaTest}</isLambdaTest>
