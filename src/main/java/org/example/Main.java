@@ -1,5 +1,7 @@
 package org.example;
 
+
+
 public class Main {
 
     public static void main(String[] args) {
@@ -7,9 +9,14 @@ public class Main {
 
 
 
+
     }
 }
 /*
+fakeeeeemail@hotmail.com
+fakeemail123
+
+
 Components for Automation framework
 1. Reporting- Will be using Allure and Exlent
 -will be using a configuration which will report which will be reported

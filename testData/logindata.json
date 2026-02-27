@@ -1,0 +1,12 @@
+{
+  "data": [
+    {
+      "emailAddress": "incorrectEmail@hotmail.com",
+      "password": "incorrectPassword"
+    },
+    {
+      "emailAddress": "fakeeeeemail@hotmail.com",
+      "password": "fakeemail123"
+    }
+  ]
+}

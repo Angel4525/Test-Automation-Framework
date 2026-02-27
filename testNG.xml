@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- Defines the TestNG XML structure -->
+
+<!-- Suite = top-level container for all tests
+ parallel="methods" → runs test methods in parallel
+ thread-count="8" → max number of threads
+ verbose="1" → basic console logs -->
+<suite name="Automation Practice Test Suite" parallel="methods" thread-count="8" verbose="1">
+
+    <!-- Groups related test classes -->
+    <test name="UI Automation Test">
+
+        <!-- These are parameters that can be accessed by tests -->
+        <parameter name="browser" value="${browser}"></parameter>
+        <parameter name="isLambdaTest" value="${isLambdaTest}"></parameter>
+        <parameter name="isHeadless" value="${isHeadless}"></parameter>
+
+        <!-- Holds test classes to execute -->
+        <classes>
+
+            <!-- Runs all @Test methods in LoginTest -->
+            <class name="com.ui.tests.LoginTest"></class>
+             </classes>
+</test>
+
+      </suite>

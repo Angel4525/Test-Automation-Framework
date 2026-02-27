@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    This file tells:
+    - where logs should be written (console, file, etc.)
+    - how logs should look
+    - what log level to use
+-->
+
+<Configuration>
+
+    <!--
+         Appenders define Where logs are sent.
+         Examples: console, file, database, etc.
+     -->
+    <Appenders>
+
+        <!--
+           Console appender: Sends log messages to the terminal / console
+       -->
+        <Console name="Console" target="SYSTEM_OUT">
+
+            <!--
+              PatternLayout controls how each log message is formatted.
+              %d     -> date and time
+              %t     -> thread name
+              %level -> log level (INFO, ERROR, etc.)
+              %logger-> class name that logged the message
+              %M     ->Method Name
+              %L     ->Line number
+              %msg   -> actual log message
+              %n     -> new line
+          -->
+<PatternLayout pattern="%d{MM-dd-YYYY HH:mm:ss} [%t] %level %logger::%M::%L %msg %n"></PatternLayout>
+
+        </Console>
+
+        <!--
+           File appender:
+           Writes log messages to a file
+       -->
+        <File name="FileLogger" fileName="logs/automation.log" append="false">
+
+            <!--
+             Same log format as the console,
+             but written to a file instead
+         -->
+            <PatternLayout pattern="%d{MM-dd-YYYY HH:mm:ss} [%t] %level %logger %msg %n"></PatternLayout>
+
+
+        </File>
+
+</Appenders>
+
+    <!--
+    Loggers define *what* gets logged and at what level
+-->
+    <Loggers>
+
+        <!--
+        Root logger is sorted : DEBUG, TRACE, INFO, WARN, ERROR, and FATAL
+        - Applies to the entire application
+        - level="info" means:
+          INFO, WARN, ERROR and FATAL will be logged
+          DEBUG and TRACE will NOT be logged
+    -->
+<Root level="info">
+    <!--
+              These AppenderRefs connect the root logger
+              to the appenders defined above
+          -->
+    <AppenderRef ref="Console"></AppenderRef>
+    <AppenderRef ref="FileLogger"></AppenderRef>
+
+</Root>
+
+    </Loggers>
+
+</Configuration>
