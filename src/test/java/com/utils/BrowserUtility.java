@@ -133,7 +133,7 @@ public String getVisibleText(By locator){
        String timeStamp= format.format(date);
 
        // Build the file path for the screenshot
-       String path= System.getProperty("user.dir")+"/screenshots/"+name+" - "+timeStamp+".png";
+       String path= "./screenshots/"+name+" - "+timeStamp+".png";
 
        // Create a file at the given path
  File screenshotFile= new File(path);
