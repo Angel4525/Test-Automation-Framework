@@ -21,7 +21,6 @@
                     </suiteXmlFiles>
 
                     <!-- Pass variables from Maven to your tests -->
-
                     <systemPropertyVariables>
                         <browser>${browser}</browser>
                         <isLambdaTest>${isLambdaTest}</isLambdaTest>
