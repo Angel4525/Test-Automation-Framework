@@ -1,0 +1,90 @@
+# Name of the workflow shown in GitHub Actions
+name: Test Automation Workflow
+
+# Defines when this workflow should run
+on:
+  schedule:
+
+      # Runs automatically every day at 11:30 PM (UTC time)
+    - cron: 30 23 * * *
+  push:
+
+      # Runs when code is pushed to the "main" branch
+    branches: [ "main" ]
+
+        # Runs when a pull request is created or updated for "main"
+  pull_request:
+    branches: [ "main" ]
+
+# Defines the jobs that will run
+jobs:
+  build:
+
+    # The type of virtual machine the job will run on
+    # ubuntu-latest means GitHub provides a Linux environment
+    runs-on: ubuntu-latest
+
+    # Steps are executed one by one in order
+    steps:
+
+        # Step 1: Downloads your project code from GitHub
+    - uses: actions/checkout@v4
+
+        # Step 2: Installs Java (JDK 23) so Maven can run your tests
+    - name: Set up JDK 23
+      uses: actions/setup-java@v4
+      with:
+        java-version: '23'
+        distribution: 'temurin'
+        cache: maven
+
+            # Step 3: Runs your automation tests using Maven
+    - name: Running Test Automation Framework with Maven
+
+         # -B = Batch mode (cleaner logs for CI)
+      # clean = Removes old build files
+      # test = Runs your test cases
+      # -Dbrowser=chrome = Runs tests on Chrome
+      # -DisLambdaTest=true = Runs tests on LambdaTest cloud
+      # -DisHeadless=false = Runs browser with UI (not headless)
+      run: mvn -B clean test -Dbrowser=chrome -DisLambdaTest=true -DisHeadless=false
+
+    # Step 4: Uploads log files even if tests fail
+    - name: Upload Test logs
+
+     # This makes sure it runs even if tests fail
+      if: always()
+      uses: actions/upload-artifact@v7.0.0
+      with:
+      
+       # Name shown in GitHub
+        name: Test logs
+
+        # Folder where log files are stored
+        path: logs/
+
+
+    # Step 5: Uploads the test report file   
+    - name: Upload Test Reports
+      if: always()
+      uses: actions/upload-artifact@v7.0.0
+      with:
+        name: Test Reports
+        path: reports.html
+
+    # Final Step: Prints a completion message in the console
+    - name: Test Execution Status
+      run: echo "Test Execution Completed"
+    
+
+
+
+
+
+
+
+
+
+
+
+      
