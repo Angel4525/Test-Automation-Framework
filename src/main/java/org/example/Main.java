@@ -23,7 +23,7 @@ Components for Automation framework
 2. Logs- will be using log4J for logging
 3. UI Automation- Selenium will be used.
 4. Assertion/Test- TestNG will be used.
--executes tests from terminal or  with testNG.xml
+-executes tests from terminal or  with testng.xml
 -has in-built reporting capabilities
 -re-try logic(if test fails, reruns failed test)
 5.Data driven testing-JSON, CSV, Excel, Faker
