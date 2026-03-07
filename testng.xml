@@ -20,7 +20,13 @@
 
             <!-- Runs all @Test methods in LoginTest -->
             <class name="com.ui.tests.LoginTest"></class>
-             </classes>
+            <class name="com.ui.tests.InvalidLoginTest"></class>
+            <class name="com.ui.tests.AddNewFirstAddressTest"></class>
+            <class name="com.ui.tests.ProductSearchTest"></class>
+            <class name="com.ui.tests.ProductCheckoutTest"></class>
+
+
+        </classes>
 </test>
 
       </suite>

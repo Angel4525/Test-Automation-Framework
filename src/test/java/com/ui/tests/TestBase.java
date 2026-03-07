@@ -38,8 +38,8 @@ public class TestBase {
 
          // Optional means Default to "chrome" if XML doesn't provide
             @Optional("chrome") String browser,
-            @Optional("true") boolean isLambdaTest,
-            @Optional("true") boolean isHeadless,
+            @Optional("false") boolean isLambdaTest,
+            @Optional("false") boolean isHeadless,
             ITestResult result){
 
         this.isLambdaTest=isLambdaTest;
@@ -74,7 +74,7 @@ public BrowserUtility getInstance(){
 }
 
 
-// Runs after each test to clean up
+/* Runs after each test to clean up
 @AfterMethod(description = "Tear down the browser")
     public void tearDown() {
 
@@ -86,4 +86,6 @@ public BrowserUtility getInstance(){
         homePage.quit();
     }
 }
+
+ */
 }
